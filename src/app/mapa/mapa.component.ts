@@ -9,6 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MapaComponent implements AfterViewInit {
   private map!: L.Map;
+  nombre: string = '';
+  capital: string = '';
+  poblacion: number = 0;
+  area: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -45,6 +49,12 @@ export class MapaComponent implements AfterViewInit {
         },
         //Añadir un popup que muestra el nombre de la entidad geográfica al hacer clic
         onEachFeature: (feature, layer) => {
+          if (feature.properties) {
+            this.nombre = feature.properties.name;
+            this.capital = feature.properties.city;
+            this.poblacion = feature.properties.population;
+            this.area = feature.properties.area;
+          }
           if (feature.properties && feature.properties.name) {
             layer.bindPopup(`<strong>${feature.properties.name}</strong>`);
           }
