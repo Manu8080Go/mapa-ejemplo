@@ -37,10 +37,13 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
-          },
+  "src/styles.css",
+  "node_modules/leaflet/dist/leaflet.css"
+],
+"scripts": [
+  "node_modules/leaflet/dist/leaflet.js"
+]
+},
           "configurations": {
             "production": {
               "budgets": [
@@ -94,13 +97,19 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+           "styles": [
+  "src/styles.css",
+  "node_modules/leaflet/dist/leaflet.css"
+],
+"scripts": [
+  "node_modules/leaflet/dist/leaflet.js"
+]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
